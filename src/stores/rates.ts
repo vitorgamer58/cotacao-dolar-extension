@@ -33,6 +33,7 @@ export const useRatesStore = defineStore(
         if(value == undefined) return
         this.pairs[key] = { ...value, timestamp: Date.now() }
       }
-    }
+    },
+    persist: true
   }
 )
