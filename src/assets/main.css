@@ -33,3 +33,13 @@ a,
     padding: 0 2rem;
   }
 }
+
+@media (max-width: 800px) {
+  #vue-inspector-container {
+    display: none;
+  }
+
+  #__vue-devtools-container__ {
+    display: none;
+  }
+}
