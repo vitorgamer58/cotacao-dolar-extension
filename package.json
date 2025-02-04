@@ -1,6 +1,7 @@
 {
   "name": "cotacao-dolar-extension",
-  "version": "0.0.0",
+  "version": "0.0.1-beta1",
+  "description": "Extensão paraexibir a cotação do dólar",
   "private": true,
   "type": "module",
   "scripts": {
