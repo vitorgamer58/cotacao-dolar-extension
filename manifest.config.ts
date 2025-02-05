@@ -23,7 +23,7 @@ const parseVersion = (ver: string) => {
 
 const { major, minor, patch, label } = parseVersion(version)
 
-const isDevelopment = env.environment === 'development'
+const isDevelopment = env.NODE_ENV === 'development'
 
 const permissions = isDevelopment
   ? ['background']
