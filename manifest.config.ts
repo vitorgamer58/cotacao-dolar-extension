@@ -25,9 +25,7 @@ const { major, minor, patch, label } = parseVersion(version)
 
 const isDevelopment = env.NODE_ENV === 'development'
 
-const permissions = isDevelopment
-  ? ['background']
-  : []
+const permissions = isDevelopment ? ['background'] : []
 
 const hostPermissions = isDevelopment ? ['<all_urls>'] : []
 
