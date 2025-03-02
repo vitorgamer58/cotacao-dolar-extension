@@ -25,18 +25,24 @@ const { major, minor, patch, label } = parseVersion(version)
 
 const isDevelopment = env.NODE_ENV === 'development'
 
-const permissions = isDevelopment ? ['background'] : []
+const permissions = isDevelopment ? ['background', 'tabs', 'storage'] : []
 
 const hostPermissions = isDevelopment ? ['<all_urls>'] : []
 
 export default {
   manifest_version: 3,
   version: `${major}.${minor}.${patch}.${label}`,
+  icons: {
+    '128': 'logo128x128.png',
+    '48': 'logo48x48.png',
+    '32': 'logo32x32.png',
+    '16': 'logo16x16.png'
+  },
   description,
   name: 'Cotação Dólar',
   action: {
     default_popup: 'index.html',
-    default_icon: 'favicon.ico'
+    default_icon: 'logo32x32.png'
   },
   permissions,
   host_permissions: hostPermissions
