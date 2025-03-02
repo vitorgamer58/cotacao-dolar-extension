@@ -28,7 +28,7 @@ export const useRatesStore = defineStore('rates', {
     async fetchUsdt24h() {
       const pair = 'USDTBRL'
 
-      if (this.pairs[pair]) return
+      if (this.getRate(pair)) return
 
       const exchangeClient = new ExchangeClient()
 
@@ -37,9 +37,10 @@ export const useRatesStore = defineStore('rates', {
 
         this.pairs[pair] = {
           tickerName: 'Dólar',
-          lastPrice: Number(usdt24h?.lastPrice),
-          highPrice: Number(usdt24h?.highPrice),
-          lowPrice: Number(usdt24h?.lowPrice),
+          lastPrice: Number(usdt24h.lastPrice),
+          highPrice: Number(usdt24h.highPrice),
+          lowPrice: Number(usdt24h.lowPrice),
+          priceChangePercent: Number(usdt24h.priceChangePercent),
           timestamp: Date.now()
         }
       } catch (error) {
@@ -53,7 +54,7 @@ export const useRatesStore = defineStore('rates', {
 
       this.intervalId = setInterval(() => {
         this.fetchUsdt24h()
-      }, 300000)
+      }, 3000)
     },
 
     stopAutoFetch() {

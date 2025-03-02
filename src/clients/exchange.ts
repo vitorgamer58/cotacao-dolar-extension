@@ -17,7 +17,10 @@ class ExchangeClient {
         }
       })
       .then(({ data }) => data)
-      .catch((error) => console.log(error))
+      .catch((error) => {
+        console.log(error)
+        throw error
+      })
   }
 }
 

@@ -3,5 +3,6 @@ export interface IPair {
   lastPrice: number
   highPrice: number
   lowPrice: number
+  priceChangePercent: number
   timestamp?: number
 }

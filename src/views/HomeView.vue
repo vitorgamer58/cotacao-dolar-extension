@@ -22,7 +22,6 @@ export default {
 
 <template>
   <main class="home">
-    <h1>Cotação</h1>
     <ShowTicker v-bind="ratesStore.pairs.USDTBRL" v-if="ratesStore.pairs?.USDTBRL"></ShowTicker>
   </main>
 </template>

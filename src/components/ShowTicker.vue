@@ -5,7 +5,7 @@ export default {
     lastPrice: Number,
     highPrice: Number,
     lowPrice: Number,
-    priceChange: Number,
+    priceChangePercent: Number,
     timestamp: Number
   },
   computed: {
@@ -26,33 +26,53 @@ export default {
 </script>
 
 <template>
-  <h2>{{ tickerName }}</h2>
-  <p>
-    R$
-    {{
-      lastPrice?.toLocaleString('pt-br', {
-        minimumFractionDigits: 2,
-        maximumFractionDigits: 2
-      })
-    }}
-  </p>
-  <p>
-    Máxima: R$
-    {{
-      highPrice?.toLocaleString('pt-br', {
-        minimumFractionDigits: 2,
-        maximumFractionDigits: 2
-      })
-    }}
-  </p>
-  <p>
-    Mínima: R$
-    {{
-      lowPrice?.toLocaleString('pt-br', {
-        minimumFractionDigits: 2,
-        maximumFractionDigits: 2
-      })
-    }}
-  </p>
-  <p>Última atualização: {{ getFormattedDate }}</p>
+  <div class="quote-div">
+    <h2>{{ tickerName }}</h2>
+    <p class="quote-last-price">
+      R$
+      {{
+        lastPrice?.toLocaleString('pt-br', {
+          minimumFractionDigits: 2,
+          maximumFractionDigits: 2
+        })
+      }}
+    </p>
+    <p>
+      Máxima: R$
+      {{
+        highPrice?.toLocaleString('pt-br', {
+          minimumFractionDigits: 2,
+          maximumFractionDigits: 2
+        })
+      }}
+    </p>
+    <p>
+      Mínima: R$
+      {{
+        lowPrice?.toLocaleString('pt-br', {
+          minimumFractionDigits: 2,
+          maximumFractionDigits: 2
+        })
+      }}
+    </p>
+    <p>
+      Variação 24h:
+      {{
+        priceChangePercent?.toLocaleString('pt-br', {
+          minimumFractionDigits: 2,
+          maximumFractionDigits: 2
+        })
+      }}%
+    </p>
+    <p>Última atualização: {{ getFormattedDate }}</p>
+  </div>
 </template>
+
+<style>
+.quote-div {
+  text-align: center;
+}
+.quote-last-price {
+  font-size: 30px;
+}
+</style>
